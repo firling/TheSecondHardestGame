@@ -17,25 +17,30 @@ public class playerController : MonoBehaviour
         m_renderer = GetComponent<SpriteRenderer>();
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        // Debug.Log("Start");
-    }
-
     // Update is called once per frame
     void Update()
     {
-        float translationX = Input.GetAxis("Horizontal");
-        float translationY = Input.GetAxis("Vertical");
-
-        Vector2 translation = new Vector2(translationX, translationY);
-
-        m_body.velocity = translation * speed;
-
-        if(translationX != 0)
+        float x = 0;
+        float y = 0;
+        if (Input.GetKey(KeyCode.Z))
         {
-            m_renderer.flipX = translationX < 0;
+            y += 1;
         }
+        if (Input.GetKey(KeyCode.S))
+        {
+            y -= 1;
+        }
+        if (Input.GetKey(KeyCode.Q))
+        {
+            x -= 1;
+        }
+        if (Input.GetKey(KeyCode.D))
+        {
+            x += 1;
+        }
+        
+        Vector2 translation = new Vector2(x, y);
+        
+        m_body.velocity = translation * speed;
     }
 }

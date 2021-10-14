@@ -1,12 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class enemyController : MonoBehaviour
 {
-    private Rigidbody2D m_body;
-
-    private SpriteRenderer m_renderer;
 
     public List<GameObject> positions = new List<GameObject>();
 
@@ -15,23 +13,15 @@ public class enemyController : MonoBehaviour
     private Vector2 movePosition;
 
     //[Range(0, 10)]
-    public float speed = 4f;
-
+    public float speed = 5f;
+    
     void Awake()
     {
-        m_body = GetComponent<Rigidbody2D>();
-        m_renderer = GetComponent<SpriteRenderer>();
 
         if (positions.Count > 0)
         {
             movePosition = new Vector2(positions[index].transform.position.x, positions[index].transform.position.y);
         }
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        // Debug.Log("Start");
     }
 
     // Update is called once per frame
@@ -59,5 +49,12 @@ public class enemyController : MonoBehaviour
         }
         
         movePosition = new Vector2(positions[index].transform.position.x, positions[index].transform.position.y);
+    }
+    
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if(col.gameObject.CompareTag("Player")) {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
     }
 }

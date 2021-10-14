@@ -18,7 +18,6 @@ public class Collectible : MonoBehaviour
         if(col.gameObject.CompareTag("Player")) {
             OnCollected();
             Destroy(gameObject);
-
         }
     }
 
