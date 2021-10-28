@@ -11,8 +11,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - zone
+  - player
   - 
   - 
   - 
@@ -40,4 +40,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Zones
+    uniqueID: 4083798741
+    locked: 0
+  - name: Murs
+    uniqueID: 457330711
+    locked: 0
+  - name: Candies
+    uniqueID: 2912593457
+    locked: 0
+  - name: Enemies
+    uniqueID: 244906455
     locked: 0

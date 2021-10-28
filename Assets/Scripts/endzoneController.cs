@@ -12,10 +12,19 @@ public class endzoneController : MonoBehaviour
         if (candies.transform.childCount == 0)
         {
             Debug.Log("Level Done");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            String name = SceneManager.GetActiveScene().name;
+            String level = name.Substring(name.IndexOf("_")+1);
+            int nextLevel = int.Parse(level) + 1;
+            if (nextLevel <= SceneManager.sceneCountInBuildSettings) {
+                SceneManager.LoadScene("level_" + nextLevel);
+            } else {
+                Debug.Log("Game Finished");
+            }
         }
         else
         {
+            // TODO - END THE GAME
             Debug.Log("There are still some Candies left!");
         }
     }

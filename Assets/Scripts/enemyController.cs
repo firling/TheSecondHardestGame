@@ -22,13 +22,15 @@ public class enemyController : MonoBehaviour
         {
             movePosition = new Vector2(positions[index].transform.position.x, positions[index].transform.position.y);
         }
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (positions.Count == 0) return;
         
-        Vector2 newPos = Vector2.MoveTowards(transform.position, movePosition, speed * Time.deltaTime);
+        Vector3 newPos = Vector3.MoveTowards(transform.position, movePosition, speed * Time.deltaTime);
 
         UpdatePosition();
 
