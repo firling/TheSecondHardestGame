@@ -8,6 +8,8 @@ public class playerController : MonoBehaviour
 
     private SpriteRenderer m_renderer;
 
+    private bool canMove = true;
+
     //[Range(0, 10)]
     public float speed = 4f;
 
@@ -17,9 +19,15 @@ public class playerController : MonoBehaviour
         m_renderer = GetComponent<SpriteRenderer>();
     }
 
+    public void setCanMove(bool can) {
+        canMove = can;
+    }
+
     // Update is called once per frame
     void Update()
     {
+        if (!canMove) return;
+
         float x = 0;
         float y = 0;
         if (Input.GetKey(KeyCode.Z))

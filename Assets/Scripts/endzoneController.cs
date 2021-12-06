@@ -12,7 +12,6 @@ public class endzoneController : MonoBehaviour
         if (candies.transform.childCount == 0)
         {
             Debug.Log("Level Done");
-            // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             String name = SceneManager.GetActiveScene().name;
             String level = name.Substring(name.IndexOf("_")+1);
             int nextLevel = int.Parse(level) + 1;

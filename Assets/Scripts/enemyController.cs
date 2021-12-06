@@ -12,6 +12,8 @@ public class enemyController : MonoBehaviour
 
     private Vector2 movePosition;
 
+    private bool moving = false;
+
     //[Range(0, 10)]
     public float speed = 5f;
     
@@ -28,13 +30,22 @@ public class enemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (positions.Count == 0) return;
+        if (positions.Count == 0 || !moving) return;
+
         
         Vector3 newPos = Vector3.MoveTowards(transform.position, movePosition, speed * Time.deltaTime);
 
         UpdatePosition();
 
         transform.position = newPos;
+    }
+
+    public void startMoving() {
+        moving = true;
+    }
+
+    public void stopMoving() {
+        moving = false;
     }
 
     void UpdatePosition()

@@ -10,12 +10,12 @@ public class uiManager : MonoBehaviour
     void Awake()
     {
         m_Game = gameManager.Instance;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(m_Game.Playing);
-        // startGame.gameObject.SetActive(!m_Game.Playing);
+        startGame.gameObject.SetActive(!m_Game.Playing);
     }
 }
