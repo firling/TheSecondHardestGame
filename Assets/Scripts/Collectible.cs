@@ -7,17 +7,14 @@ public class Collectible : MonoBehaviour
 {
     public event EventHandler<EventArgs> Collected; 
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public AudioSource audioSource;
 
     void OnCollisionEnter2D(Collision2D col)
     {
         if(col.gameObject.CompareTag("Player")) {
             OnCollected();
             Destroy(gameObject);
+            audioSource.Play();
         }
     }
 
